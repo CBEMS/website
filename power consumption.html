@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="javascript/canvasjs.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer", {
+				
+				animationEnabled: true,
+				theme: "theme2",
+				data: [
+				{
+					type: "doughnut",
+					indexLabelFontFamily: "Garamond",
+					indexLabelFontSize: 20,
+					startAngle: 0,
+					indexLabelFontColor: "dimgrey",
+					indexLabelLineColor: "darkgrey",
+					toolTipContent: "{y} %",
+
+					dataPoints: [
+					{ y: 51.04, indexLabel: "Android {y}%" },
+					{ y: 40.83, indexLabel: "iOS {y}%" },
+					{ y: 3.20, indexLabel: "Java ME {y}%" },
+					{ y: 1.11, indexLabel: "BlackBerry {y}%" },
+					{ y: 2.29, indexLabel: "Windows {y}%" },
+					{ y: 1.53, indexLabel: "Others {y}%" }
+
+					]
+				}
+				]
+			});
+
+			chart.render();
+		}
+	</script>
+	
+	<title>Power Consumption</title>
+</head>
+<body>
+    <div id="container">
+    <div id="menu">
+        <div id="menulist">
+            <a href="index.html" title="Home Page">
+                <img id="home" src="images\home.png" class="pad" height="50" width="50" />
+            </a>
+            <a href="power consumption.html" title="Power Consumption">
+                <img src="images\powercons.png" class="pad" height="50" width="50" />
+            </a>
+            <a href="">
+                <img src="images\mapping.png" class="pad" height="50" width="50" />
+            </a>
+            <a href="power-schedule1.html" title="Power Schedule">
+                <img src="images\powersch.png" class="pad" height="50" width="50" />
+            </a>
+
+            <a href="billing.html" title="Billing">
+                <img id="bill" src="images\billing.png" class="pad" height="50" width="50" />
+            </a>
+        </div>
+    </div>
+    <div id="header">
+        <img id="profilepics" src="images/profilepic.jpg" />
+        <span class="span1" id="username">My name</span>
+        <br>
+        <button id="signOut">Sign Out</button>
+    </div>
+		<div id="content">
+       	<div class="title">
+			   <h1 >Power Consumption</h1>
+       	</div>
+		<div id="PowerCons" style="width: 40%; height: 400px;display :inline;" >
+			<div id="PowerConsDetail" >
+				<h2><span>75 </span> %</h2>
+				<div id="more"><a href="billing.html">Update Bill Limits </a><p style="display:inline;">|</p><a href="power-schedule1.html"> Update Power Schedule</a></div>
+			</div>
+			</div>  
+		<div id="chartContainer" style="height: 400px; width: 60%;"></div>
+		
+		</div>
+		</div>
+		<!-- SCRIPTS -->
+		
+		<!-- JQUERY SCRIPTS -->
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- a SCRIPT for all pages -->
+		<script type="text/javascript" src="javascript\allPages.js"></script>
+</body>
+</html>
