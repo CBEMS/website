@@ -10,7 +10,7 @@
     {
 		  $email = test_input($_POST['email']);
 	     $pass = test_input($_POST['pass']);
-		  $pass=$pass;
+		  $pass=md5($pass);
         
     		$data=array("email"=>$email,"password"=>$pass);
 			$url = "localhost/api/user/login/get_user.php";    
