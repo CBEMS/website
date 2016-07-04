@@ -20,7 +20,7 @@
 
         if ($_GET['level']==0) 
         {
-        $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
+        $url = "localhost/api/hardware/get_all_blocks.php";    
         $url = $url."?user_id=".$user_id;
             
         // create curl resource 
@@ -51,7 +51,7 @@
             $block_name='"'.$block_name.'"';
             $level = $_GET['level'];
 
-            $url = "http://196.205.93.181:22355/api/hardware/get_rooms_block.php";    
+            $url = "localhost/api/hardware/get_rooms_block.php";    
             $url = $url."?user_id=".$user_id."&block_id=".$S_id;
 
             // create curl resource 
@@ -81,7 +81,7 @@
             $block_name=$_GET['block_name'];
             $block_name='"'.$block_name.'"';
 
-            $url = "http://196.205.93.181:22355/api/hardware/get_devices_room.php";   
+            $url = "localhost/api/hardware/get_devices_room.php";   
             $url = $url . "?user_id=" . $user_id . "&room_id=" . $S_id ;
             // create curl resource 
             $ch = curl_init(); 
@@ -107,7 +107,7 @@
             {
                 # code...
                 $messageForDevice= "pin".$deviceID."0" ; //  askAlaa   
-                $url = "http://196.205.93.181:22355//api/message/send_message.php";    
+                $url = "localhost//api/message/send_message.php";    
                 $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
                 
                 // create curl resource 
@@ -126,7 +126,7 @@
             {
                 # code...
                 $messageForDevice= "pin".$deviceID."1"; //  askAlaa
-                $url = "http://196.205.93.181:22355//api/message/send_message.php";    
+                $url = "localhost//api/message/send_message.php";    
                 $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
                 
                 // create curl resource 
@@ -149,7 +149,7 @@
     }
     else
     {
-        $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
+        $url = "localhost/api/hardware/get_all_blocks.php";    
         $url = $url."?user_id=".$user_id;
             
         // create curl resource 

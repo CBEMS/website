@@ -11,7 +11,7 @@
     $roomsArrayText = $devicesArrayText =$block_id = $room_id =$device_id= $dName=$Room_ID =$room_name=$Block_ID=$Block_Name =$deviceDurationsTextFromMapping='""';
 
 
-        $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
+        $url = "localhost/api/hardware/get_all_blocks.php";    
         $url = $url."?user_id=".$user_id;
             
         // create curl resource 
@@ -33,7 +33,7 @@
         {
             # code...
         $deviceIdFromMapping =$_GET['deviceIdFromMapping'];
-        $url = "http://196.205.93.181:22355/api/hardware/get_device_info.php";    
+        $url = "localhost/api/hardware/get_device_info.php";    
         $url = $url."?device_id=".$deviceIdFromMapping;
             
         // create curl resource 
@@ -53,7 +53,7 @@
         $node_id=$out1['node_id'];  
 
 
-        $url = "http://196.205.93.181:22355/api/schedule/get_all_durations.php";    
+        $url = "localhost/api/schedule/get_all_durations.php";    
         $url = $url."?device_id=".$deviceIdFromMapping;
             
         // create curl resource 
@@ -72,7 +72,7 @@
         $deviceDurationsTextFromMapping = $out2;
 
 
-        $url = "http://196.205.93.181:22355/api/hardware/get_node_info.php";    
+        $url = "localhost/api/hardware/get_node_info.php";    
         $url = $url."?node_id=".$node_id;
             
         // create curl resource 
@@ -90,7 +90,7 @@
         $Room_ID = $out3['room_id'];
        
 
-        $url = "http://196.205.93.181:22355/api/hardware/get_room_info.php";    
+        $url = "localhost/api/hardware/get_room_info.php";    
         $url = $url."?room_id=".$Room_ID; 
         // create curl resource 
         $ch = curl_init(); 
@@ -108,7 +108,7 @@
         $Block_ID = $out4['block_id'];
 
 
-        $url = "http://196.205.93.181:22355/api/hardware/get_block_info.php";    
+        $url = "localhost/api/hardware/get_block_info.php";    
         $url = $url."?block_id=".$Block_ID;
         // create curl resource 
         $ch = curl_init(); 
@@ -140,7 +140,7 @@
             # code...
             $block_id=$_GET['blockId2'];
 
-            $url = "http://196.205.93.181:22355/api/hardware/get_rooms_block.php";    
+            $url = "localhost/api/hardware/get_rooms_block.php";    
             $url = $url."?user_id=".$user_id."&block_id=".$block_id;
             // create curl resource 
             $ch = curl_init(); 
@@ -160,7 +160,7 @@
         {
             # code...
             $room_id=$_GET['roomId2'] ;
-            $url = "http://196.205.93.181:22355/api/hardware/get_devices_room.php";    
+            $url = "localhost/api/hardware/get_devices_room.php";    
             $url = $url . "?user_id=" . $user_id . "&room_id=" . $room_id ;
             // create curl resource 
             $ch = curl_init(); 
@@ -187,7 +187,7 @@
         if ($_GET['showDurations']=='true') 
         {
             # code...
-            $url = "http://196.205.93.181:22355/api/bills/get_all_durations.php";    
+            $url = "localhost/api/bills/get_all_durations.php";    
             $url = $url ."&device_id=" . $device_id ;
             // create curl resource 
             $ch = curl_init(); 
