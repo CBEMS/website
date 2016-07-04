@@ -5,7 +5,6 @@ if(!isset($_SESSION['user_name']))
 {
 	header("Location: login-form.php");
 }
-echo $_SESSION['user_id'];
 
 ?>
 
@@ -49,8 +48,7 @@ echo $_SESSION['user_id'];
         </div>
         
         <div id="header">
-            <img id="profilepics" src="images/profilepic.jpg" />
-            <span id="username">My name</span>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
         </div>
         
         <div id="content">

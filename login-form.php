@@ -76,7 +76,7 @@ function test_input($data)
     <div class="container">
         <div class="row text-center " style="padding-top:100px;">
             <div class="col-md-12">
-                <img alt="LOGO" src="" />
+                <img alt="LOGO" src="images/logo.png" />
             </div>
         </div>
         <div class="row ">

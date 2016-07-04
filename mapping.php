@@ -8,16 +8,16 @@
     }
     $user_id = $_SESSION['user_id'] ;
     $ArrayText="";
-    echo $user_id;
     $block_id=0;
     $block_name='"main"';
     $level=0;
     $S_id=0;
     $S_name='"main"';
-
+    
     if(isset($_GET['level']))
     {
-        
+    
+
         if ($_GET['level']==0) 
         {
         $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
@@ -37,7 +37,6 @@
         $output = str_replace("\"", "'" , $output);
         $output = str_replace("\n", "" , $output);
         $ArrayText = '"' . $output . '"';
-        echo $ArrayText;
         }
         
         if ($_GET['level']==1) 
@@ -68,8 +67,7 @@
             $output = str_replace("\"", "'" , $output);
             $output = str_replace("\n", "" , $output);
             $ArrayText = '"' . $output . '"';
-            echo $ArrayText;
-
+           
         }
         elseif ($_GET['level']==2) 
         {
@@ -99,8 +97,54 @@
             $output = str_replace("\"", "'" , $output);
             $output = str_replace("\n", "" , $output);
             $ArrayText = '"' . $output . '"';
-            echo $ArrayText;
+            if (isset($_GET['switchOnOff']))
+            {
+            $message = explode("_", $_GET['switchOnOff']);
+            $deviceID = $message[0];
+            $newstate = isset($message[1]) ? $message[1] : null;
+            
+            if ($newstate == 'off') 
+            {
+                # code...
+                $messageForDevice= "pin".$deviceID."0" ; //  askAlaa   
+                $url = "http://196.205.93.181:22355//api/message/send_message.php";    
+                $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
+                
+                // create curl resource 
+                $ch = curl_init(); 
+                // set url 
+                curl_setopt($ch, CURLOPT_URL, $url); 
+                //return the transfer as a string 
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                // $output contains the output string 
+                $output = curl_exec($ch); 
+                // close curl resource to free up system resources 
+                curl_close($ch);
+                      
+            }
+            elseif ($newstate == 'on') 
+            {
+                # code...
+                $messageForDevice= "pin".$deviceID."1"; //  askAlaa
+                $url = "http://196.205.93.181:22355//api/message/send_message.php";    
+                $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
+                
+                // create curl resource 
+                $ch = curl_init(); 
+                // set url 
+                curl_setopt($ch, CURLOPT_URL, $url); 
+                //return the transfer as a string 
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                // $output contains the output string 
+                $output = curl_exec($ch); 
+                // close curl resource to free up system resources 
+                curl_close($ch);
+                
+            }
+
+            }
         }
+
 
     }
     else
@@ -122,7 +166,6 @@
         $output = str_replace("\"", "'" , $output);
         $output = str_replace("\n", "" , $output);
         $ArrayText = '"' . $output . '"';
-        echo $ArrayText;
         
     }
      
@@ -166,8 +209,7 @@
         </div>
         
         <div id="header">
-            <img id="profilepics" src="images/profilepic.jpg" />
-            <span id="username">My name</span>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
         </div>
 
         <div id="content">

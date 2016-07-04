@@ -8,7 +8,6 @@
     }
 
     $user_id = $_SESSION['user_id'] ;
-    echo $user_id;
     $roomsArrayText = $devicesArrayText =$block_id = $room_id =$device_id= $dName=$Room_ID =$room_name=$Block_ID=$Block_Name =$deviceDurationsTextFromMapping='""';
 
 
@@ -141,7 +140,6 @@
             # code...
             $block_id=$_GET['blockId2'];
 
-            echo $_GET['blockId2'];
             $url = "http://196.205.93.181:22355/api/hardware/get_rooms_block.php";    
             $url = $url."?user_id=".$user_id."&block_id=".$block_id;
             // create curl resource 
@@ -157,9 +155,7 @@
             $output = str_replace("\"", "'" , $output);
             $output = str_replace("\n", "" , $output);
             $roomsArrayText = '"' . $output . '"';
-            echo $roomsArrayText ;
         }
-        echo "<br/>";
         if ($_GET['roomId2'] != "" ) 
         {
             # code...
@@ -180,7 +176,6 @@
             $output = str_replace("\"", "'" , $output);
             $output = str_replace("\n", "" , $output);
             $devicesArrayText = '"' . $output . '"';
-            echo $devicesArrayText ;
         }
         if ($_GET['deviceId2'] != "" ) 
         {
@@ -208,7 +203,6 @@
             $output = str_replace("\"", "'" , $output);
             $output = str_replace("\n", "" , $output);
             $DurationsText = '"' . $output . '"';
-            echo $DurationsText ;
         }
     }
 
@@ -260,8 +254,7 @@
         </div>
         
         <div id="header">
-            <img id="profilepics" src="images/profilepic.jpg" />
-            <span id="username">My name</span>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
         </div>
         
         <div id="content">
@@ -369,7 +362,7 @@
                     </form>
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <button id="showRightPanelButton" class="btn btn-lg btn-primary" >Show All Durations</button>
+                        <button id="showRightPanelButton" class="btn btn-lg btn-primary" style='width:180px; height:50px' >Show All Durations</button>
                         <div id="rightPanel" class="panel panel-default">
                             <div class="panel-heading">
                                 Saved schedules goes here
