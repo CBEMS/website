@@ -1,0 +1,67 @@
+User 2: 
+user_id : 2
+Name : galal
+email : galal@gmail.com
+password : Galal123
+phone : 01111111112
+type : Commercial
+-------------------------
+Blocks :
+| block_id | block_name | last_request        | start_time          | user_id |
+|        4 | building1  | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |       2 |
+|        5 | building2  | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |       2 |
+------------------------------------
+Rooms : 
+| room_id | name       | block_id |
+|       9 | livingroom |        4 |
+|      10 | kitchen    |        4 |
+|      11 | livingroom |        5 |
+|      12 | kitchen    |        5 |
+-------------------------------------
+Nodes : 
+| node_id | connected | last_request        | start_time          | room_id | serial_num | ip_address |
+|      18 | false     | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |       9 | 12363      | 0          |
+|      19 | false     | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |       9 | 12364      | 0          |
+|      20 | false     | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      10 | 12365      | 0          |
+|      21 | false     | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      10 | 12366      | 0          |
+|      22 | true      | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      10 | 12367      | 0          |
+|      23 | false     | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      11 | 12368      | 0          |
+|      24 | true      | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      12 | 12369      | 0          |
+|      25 | true      | 2016-07-04 18:01:22 | 2016-07-04 18:01:22 |      12 | 12370      | 0          |
+--------------------------------------
+Devices : 
+| device_id | device_name  | state        | node_id |
+|        56 | dishmachine  | off          |      18 |
+|        57 | washmachine  | off          |      18 |
+|        58 | xbox         | off          |      19 |
+|        59 | ps4          | off          |      19 |
+|        60 | pc           | on           |      19 |
+|        61 | lamp         | on           |      19 |
+|        62 | aircondition | on           |      20 |
+|        63 | fan          | off          |      20 |
+|        64 | drill        | off          |      20 |
+|        65 | metalcutter  | off          |      21 |
+|        66 | oscilliscobe | disconnected |      21 |
+|        67 | aircondition | on           |      21 |
+|        68 | fan          | off          |      21 |
+|        69 | pc           | on           |      21 |
+|        70 | lamp         | on           |      21 |
+|        71 | lamp         | off          |      22 |
+|        72 | Pc           | off          |      22 |
+|        73 | fans         | on           |      22 |
+|        74 | lamp         | off          |      22 |
+|        75 | pc           | on           |      23 |
+|        76 | aircondition | on           |      23 |
+|        77 | lamp2        | disconnected |      23 |
+|        78 | mesuerment   | off          |      24 |
+|        79 | HEATER       | on           |      24 |
+|        80 | FRIDGE       | on           |      24 |
+|        81 | pc           | off          |      25 |
+|        82 | lamp         | on           |      25 |
+|        83 | aircondition | off          |      25 |
+|        84 | lamp         | on           |      26 |
+|        85 | pc           | on           |      26 |
+|        86 | aircondition | disconnected |      26 |
+
+---------------------------------------
+******************************************************************************************************
