@@ -19,7 +19,7 @@
     .pad{margin-bottom: 10px;} 
     /************header***************/  
     #header{
-        background-color :darkgray ;
+        background-color: #333;
         height: 100px;
         margin: 0;
         padding: 0;
@@ -32,6 +32,16 @@
     }
     #profilepics{float: right;margin: 10px 10px;}
     #header span {float: right;padding: 38px 10px 0 10px;}
+    .span1 {color :white; padding: 35px 10px 0 10px;margin: 0;}
+    #signOut{
+        float: right;
+        border-radius: 12px;
+        color: white;
+        background-color: #5A5A5A;
+        width: 80px;
+        height: 50px;
+    }
+    
     /********************************/
     /*************Content*************/
     #content{
@@ -41,37 +51,100 @@
         top: 100px;
         width:100%;
         float: right;
+        height: 552px;
         }   
+        
     /****************Content | Billing page***************/
     #billing{display: none;}
     .title{background-color: #CBCBCC; height: 50px; }
-    .title p {color: #CD721D; padding: 5px 5px 5px 100px; font-weight: bold ;font-size: 2em;}
+    .title h1{color: #CD721D; padding: 5px 5px 5px 100px; font-weight: bold ;font-size: 2em;}
     button{ 
     height: 60px;
-    width: 60px;
     padding: 0;
     margin: 0;
-    } img{align: centre;}
-    #displayFee{
-    position: relative;
-    top: 30px;
-    left: 400px;
-    background-color: #CBCBCB;
-    width: 300px;
-    height: 50px;
-        }
-     #displayFee p{text-align: center;padding-top: 15px } 
-     #selectMon{position: relative;
-    top: 30px;
-    left: 300px;
+    }
+    #updateButton{
+        width: 58%;
+    }
+    #saveButton{
+        width: 20%;
+    }
+    #clearAllButton{
+        width: 20%;
+    }
     
-    width: 300px;
-    height: 20px;}  
-    #selectMon select{margin-left: 10px; width: 150px;}
-    #selectFee{position: relative;
-    top: 200px;
-    left: 50px;}
+    main h3 {
+        display: inline;        
+        }
+    #billCost {
+        border-radius: 12px ;
+        background-color: #02043C;
+        font-size: 20px;
+        color: white;
+        padding: 4px 10px ;
+        vertical-align: top;
+        
+    }
+    .selectFM {
+        position: relative;
+        left: 90px;
+        top: 30px;
+         bottom: 20px;
+         margin: 20px;
+    }
+    .totalCost {        
+        position: relative;
+        left: 200px;
+        top: 20px;          
+        margin: 20px;
+    }
+    .totalCost h3 { background-color: #CBCBCC;
+    padding: 10px;
+    margin: 10px;
+    }
+    .additional{
+        position: relative;
+        background-color: #CBCBCC;
+        top: 50px;
+        left: 150px;
+        bottom: 20px;
+        width: 50%;
+    }
+
     /***************************************/
+    /************ Content | power Consumption page ***********/
+    #PowerCons {
+        background-color: rgb(225, 225, 225);
+        float: left;
+    }
+    #PowerConsDetail{
+        background-color: #C62D0D;
+        position: relative;
+        width: 300px;
+        left: 70px;
+        top: 70px;
+    }
+    #PowerConsDetail h2{ 
+        margin: 0;padding: 20px 80px ;
+        font-size: 60px;
+        color: white;
+    }
+    #more{
+        background-color: gray;
+        color: white;
+        font-size: 1em;
+        padding: 10px 5px;
+    }
+    #chartContainer{
+        float: right;
+        
+    }
+    #more a { text-decoration:none;}    
+    /* visited link */
+    #more a:visited {color: #333;   }
+    /* mouse over link */
+    #more a:hover {color: #333;    }
+
     /**************Body | Home page**************/
     #homepage{display: inline-block;}
     
