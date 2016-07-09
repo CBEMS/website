@@ -108,7 +108,7 @@
                 # code...
                 $messageForDevice= "device".$deviceID."0" ; //  askAlaa   
                 $url = "localhost/api/message/send_message.php";    
-                $url = $url."?node_id=".$deviceID."&message=".$messageForDevice;
+                $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
                 
                 // create curl resource 
                 $ch = curl_init(); 
