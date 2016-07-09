@@ -106,7 +106,7 @@
             if ($newstate == 'off') 
             {
                 # code...
-                $messageForDevice= "pin".$deviceID."0" ; //  askAlaa   
+                $messageForDevice= "" ; //  askAlaa   
                 $url = "localhost//api/message/send_message.php";    
                 $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
                 
@@ -125,7 +125,7 @@
             elseif ($newstate == 'on') 
             {
                 # code...
-                $messageForDevice= "pin".$deviceID."1"; //  askAlaa
+                $messageForDevice= ""; //  askAlaa
                 $url = "localhost//api/message/send_message.php";    
                 $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
                 
@@ -208,10 +208,13 @@
             </div>
         </div>
         
-        <div id="header">
-            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
-        </div>
-
+    <div id="header">
+        
+        <img id="profilepics" src="images/defaultpp.jpg" height="50" width="50"/>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?></span>
+        <br>
+        <button id="signOut" onclick="location.href='logout.php';" >Sign Out</button>
+    </div>
         <div id="content">
             <div>
                 <p id="devicesMappingText">Devices Mapping</p>

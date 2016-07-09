@@ -2,14 +2,14 @@
     session_start();
 	 if(isset($_SESSION['user_name'])!="")
     {
-		  header("Location: home.php");
+		  header("Location: index.php");
     }
     $loginErr1=$loginErr2="";
     
     if(isset($_POST['login']))
     {
 		  $email = test_input($_POST['email']);
-	     $pass = test_input($_POST['pass']);
+	      $pass = test_input($_POST['pass']);
 		  $pass=md5($pass);
         
     		$data=array("email"=>$email,"password"=>$pass);

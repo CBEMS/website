@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_name']))
+{
+    header("Location: login-form.php");
+}
+
+?>
 <!doctype html>
 <html>
 
@@ -14,29 +23,30 @@
 <body>
     <div id="menu">
         <div id="menulist">
-            <a href="index.html" title="Home Page">
+            <a href="index.php" title="Home Page">
                 <img id="home" src="images\home.png" class="pad" height="50" width="50" />
             </a>
-            <a href="power consumption.html" title="Power Consumption">
+            <a href="power-consumption.php" title="Power Consumption">
                 <img src="images\powercons.png" class="pad" height="50" width="50" />
             </a>
-            <a href="">
+            <a href="mapping.php">
                 <img src="images\mapping.png" class="pad" height="50" width="50" />
             </a>
-            <a href="power-schedule1.html" title="Power Schedule">
+            <a href="power-schedule.php" title="Power Schedule">
                 <img src="images\powersch.png" class="pad" height="50" width="50" />
             </a>
 
-            <a href="billing.html" title="Billing">
+            <a href="billing.php" title="Billing">
                 <img id="bill" src="images\billing.png" class="pad" height="50" width="50" />
             </a>
         </div>
     </div>
     <div id="header">
-        <img id="profilepics" src="images/profilepic.jpg" />
-        <span class="span1" id="username">My name</span>
+        
+        <img id="profilepics" src="images/defaultpp.jpg" height="50" width="50"/>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?></span>
         <br>
-        <button id="signOut">Sign Out</button>
+        <button id="signOut" onclick="location.href='logout.php';" >Sign Out</button>
     </div>
     <main>
         <article id="content">

@@ -48,9 +48,12 @@ if(!isset($_SESSION['user_name']))
         </div>
         
         <div id="header">
-            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
-        </div>
         
+            <img id="profilepics" src="images/defaultpp.jpg" height="50" width="50"/>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?></span>
+            <br>
+            <button id="signOut" onclick="location.href='logout.php';" >Sign Out</button>
+        </div>
         <div id="content">
             <div id="homepage">
                 <div id="profilePic">
