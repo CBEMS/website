@@ -11,7 +11,7 @@
     $roomsArrayText = $devicesArrayText =$block_id = $room_id =$dName=$Room_ID =$room_name=$Block_ID=$Block_Name =$deviceDurationsTextFromMapping='""';
     $GLOBALS['device_id'] = '""';
 
-    $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
+    $url = "localhost/api/hardware/get_all_blocks.php";    
     $url = $url."?user_id=".$user_id;
             
     // create curl resource 
@@ -34,7 +34,7 @@
         # Device Info
 
         $deviceIdFromMapping =$_GET['deviceIdFromMapping'];
-        $url = "http://196.205.93.181:22355/api/hardware/get_device_info.php";    
+        $url = "localhost/api/hardware/get_device_info.php";    
         $url = $url."?device_id=".$deviceIdFromMapping;    
         // create curl resource 
         $ch = curl_init(); 
@@ -52,7 +52,7 @@
         $node_id=$out1['node_id'];  
 
         //  All Durations
-        $url = "http://196.205.93.181:22355/api/schedule/get_all_durations.php";    
+        $url = "localhost/api/schedule/get_all_durations.php";    
         $url = $url."?device_id=".$deviceIdFromMapping;
         // create curl resource 
         $ch = curl_init(); 
@@ -70,7 +70,7 @@
         $deviceDurationsTextFromMapping = $out2;
 
         // Node Info
-        $url = "http://196.205.93.181:22355/api/hardware/get_node_info.php";    
+        $url = "localhost/api/hardware/get_node_info.php";    
         $url = $url."?node_id=".$node_id;
         // create curl resource 
         $ch = curl_init(); 
@@ -87,7 +87,7 @@
         $Room_ID = $out3['room_id'];
        
         //  Room Info
-        $url = "http://196.205.93.181:22355/api/hardware/get_room_info.php";    
+        $url = "localhost/api/hardware/get_room_info.php";    
         $url = $url."?room_id=".$Room_ID; 
         // create curl resource 
         $ch = curl_init(); 
@@ -105,7 +105,7 @@
         $Block_ID = $out4['block_id'];
 
         //  Block Info
-        $url = "http://196.205.93.181:22355/api/hardware/get_block_info.php";    
+        $url = "localhost/api/hardware/get_block_info.php";    
         $url = $url."?block_id=".$Block_ID;
         // create curl resource 
         $ch = curl_init(); 
@@ -139,7 +139,7 @@
             # code...
             $block_id=$_GET['blockId2'];
 
-            $url = "http://196.205.93.181:22355/api/hardware/get_rooms_block.php";    
+            $url = "localhost/api/hardware/get_rooms_block.php";    
             $url = $url."?user_id=".$user_id."&block_id=".$block_id;
             // create curl resource 
             $ch = curl_init(); 
@@ -159,7 +159,7 @@
         {
             # code...
             $room_id=$_GET['roomId2'] ;
-            $url = "http://196.205.93.181:22355/api/hardware/get_devices_room.php";    
+            $url = "localhost/api/hardware/get_devices_room.php";    
             $url = $url . "?user_id=" . $user_id . "&room_id=" . $room_id ;
             // create curl resource 
             $ch = curl_init(); 
@@ -188,7 +188,7 @@
         if ($_GET['showDurations']=='true') 
         {
             # code...
-            $url = "http://196.205.93.181:22355/api/schedule/get_all_durations.php";    
+            $url = "localhost/api/schedule/get_all_durations.php";    
             $url = $url ."&device_id=" . $device_id ;
             // create curl resource 
             $ch = curl_init(); 
@@ -217,7 +217,7 @@
             $data=array("device_id"=>$_SESSION["device_id"] ,"day"=>$_GET['days'],"start_time"=>$start_time,"end_time"=>$end_time,"repetition"=> $_GET['repetition'])   ;
 
             $jsonData=urlencode(json_encode($data));
-            $url="http://196.205.93.181:22355/api/schedule/set_schedule.php";
+            $url="localhost/api/schedule/set_schedule.php";
 
             $ch=curl_init($url);  curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"POST");   
             curl_setopt($ch,CURLOPT_POSTFIELDS,array("data"=>$jsonData));  
@@ -232,7 +232,7 @@
         if ($_GET['showDurations']=="true") 
         {
             # code...
-            $url = "http://196.205.93.181:22355/api/schedule/get_all_durations.php";    
+            $url = "localhost/api/schedule/get_all_durations.php";    
             $url = $url."?device_id=".$_SESSION["device_id"];
             // create curl resource 
             $ch = curl_init(); 

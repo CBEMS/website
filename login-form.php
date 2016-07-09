@@ -13,7 +13,7 @@
 		  $pass=md5($pass);
         
     		$data=array("email"=>$email,"password"=>$pass);
-			$url = "http://196.205.93.181:22355/api/user/login/get_user.php";    
+			$url = "localhost/api/user/login/get_user.php";    
 
 		  $curl = curl_init($url);
 		  curl_setopt($curl, CURLOPT_HEADER, false);

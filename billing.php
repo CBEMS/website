@@ -7,7 +7,7 @@ if(!isset($_SESSION['user_name']))
 }
 
     $user_id = $_SESSION['user_id'] ;
-    $url = "http://196.205.93.181:22355/api/bills/get_current_usage.php";    
+    $url = "localhost/api/bills/get_current_usage.php";    
     $url = $url."?user_id=".$user_id;
         
     // create curl resource 
@@ -30,7 +30,7 @@ if(!isset($_SESSION['user_name']))
            $month = $_GET['month'];
            $new_limit= $_GET['fee'];
            
-            $url = "http://196.205.93.181:22355/api/bills/set_limit.php";    
+            $url = "localhost/api/bills/set_limit.php";    
             $url = $url."?user_id=".$user_id."&month=".$month."&new_limit=".$new_limit;
             
              // create curl resource 
