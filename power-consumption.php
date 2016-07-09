@@ -85,7 +85,12 @@ if(!isset($_SESSION['user_name']))
                 var totalpower;
                 var y=[];
                 for (j=0;j<input.length;j++){
-                    y.push((input[i]/sum)*totalpower);
+                    y.push({
+                            y: (input[i]/sum)*totalpower ,
+                            indexLabel: "{roomName}: {y}%", 
+                            sortable: true,
+                            resizeable: true
+                        });
                 }
             
 		</script>
