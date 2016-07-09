@@ -66,7 +66,29 @@ if(!isset($_SESSION['user_name']))
 		</div>
 		</div>
 		<!-- SCRIPTS -->
-		
+		<script>
+	//geting the total power consumption of each room 
+            var input = []; // initialise an empty array
+            var temp = '';
+            do {                
+                if (temp === "" || temp === null) {
+                    break;
+                } else {
+                    input.push(temp);  // push the value of power consuption of each room 
+                }
+            } while (1)
+        //calculate the sum of room's power consumption 
+                var i,j,sum=0;
+                for (i=0;i<input.length;i++){
+                    sum+=input[i];
+                }
+                var totalpower;
+                var y=[];
+                for (j=0;j<input.length;j++){
+                    y.push((input[i]/sum)*totalpower);
+                }
+            
+		</script>
 		<!-- JQUERY SCRIPTS -->
 		<script src="assets/js/jquery-1.10.2.js"></script>
 		<!-- a SCRIPT for all pages -->
