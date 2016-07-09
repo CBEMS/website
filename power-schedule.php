@@ -11,31 +11,31 @@
     $roomsArrayText = $devicesArrayText =$block_id = $room_id =$device_id= $dName=$Room_ID =$room_name=$Block_ID=$Block_Name =$deviceDurationsTextFromMapping='""';
 
 
-    $url = "localhost/api/hardware/get_all_blocks.php";    
-    $url = $url."?user_id=".$user_id;
+        $url = "localhost/api/hardware/get_all_blocks.php";    
+        $url = $url."?user_id=".$user_id;
             
-    // create curl resource 
-    $ch = curl_init(); 
-    // set url 
-    curl_setopt($ch, CURLOPT_URL, $url); 
-    //return the transfer as a string 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-    // $output contains the output string 
-    $output = curl_exec($ch); 
-    // close curl resource to free up system resources 
-    curl_close($ch);
-        
-    $output = str_replace("\"", "'" , $output);
-    $output = str_replace("\n", "" , $output);
-    $blocksArrayText = '"' . $output . '"';
+        // create curl resource 
+        $ch = curl_init(); 
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, $url); 
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+        // close curl resource to free up system resources 
+        curl_close($ch);
+            
+        $output = str_replace("\"", "'" , $output);
+        $output = str_replace("\n", "" , $output);
+        $blocksArrayText = '"' . $output . '"';
 
-    if (isset($_GET['deviceIdFromMapping'])) 
-    {
-        # Device Info
-
+        if (isset($_GET['deviceIdFromMapping'])) 
+        {
+            # code...
         $deviceIdFromMapping =$_GET['deviceIdFromMapping'];
         $url = "localhost/api/hardware/get_device_info.php";    
-        $url = $url."?device_id=".$deviceIdFromMapping;    
+        $url = $url."?device_id=".$deviceIdFromMapping;
+            
         // create curl resource 
         $ch = curl_init(); 
         // set url 
@@ -46,14 +46,16 @@
         $out1 = curl_exec($ch); 
         // close curl resource to free up system resources 
         curl_close($ch);
+       
         $out1 = json_decode($out1,true);
         $dName=$out1['device_name'];
         $dName='"'.$dName .'"';
         $node_id=$out1['node_id'];  
 
-        //  All Durations
+
         $url = "localhost/api/schedule/get_all_durations.php";    
         $url = $url."?device_id=".$deviceIdFromMapping;
+            
         // create curl resource 
         $ch = curl_init(); 
         // set url 
@@ -69,9 +71,10 @@
         $out2 = '"' . $out2 . '"';
         $deviceDurationsTextFromMapping = $out2;
 
-        // Node Info
+
         $url = "localhost/api/hardware/get_node_info.php";    
         $url = $url."?node_id=".$node_id;
+            
         // create curl resource 
         $ch = curl_init(); 
         // set url 
@@ -86,7 +89,7 @@
         $out3 = json_decode($out3,true);
         $Room_ID = $out3['room_id'];
        
-        //  Room Info
+
         $url = "localhost/api/hardware/get_room_info.php";    
         $url = $url."?room_id=".$Room_ID; 
         // create curl resource 
@@ -104,7 +107,7 @@
         $room_name= '"'. $room_name .'"';
         $Block_ID = $out4['block_id'];
 
-        //  Block Info
+
         $url = "localhost/api/hardware/get_block_info.php";    
         $url = $url."?block_id=".$Block_ID;
         // create curl resource 
@@ -122,11 +125,12 @@
 
         $Block_Name=$out5['block_name'];
         $Block_Name= '"'.$Block_Name.'"';
-    }
-    else
-    {
-        $deviceIdFromMapping = '""';
-    }
+        }
+        else
+        {
+
+            $deviceIdFromMapping = '""';
+        }
 
 
     if(isset($_GET['sumbitButton']))
@@ -201,23 +205,6 @@
             $DurationsText = '"' . $output . '"';
         }
     }
-    if (isset($_GET['submit']) && isset($device_id) )
-    {
-        if ($_GET['submit']==="save_schedule") 
-        {
-            # code...
-            $data=array("device_id"=>$device_id,"days[]"=>$_GET['days'],"start_time"=>$_GET['start-time'],"end_time"=>$_GET['end-time'],"repetition"=> $_GET['repetition']);
-
-            $jsonData=urlencode(json_encode($data));
-            $url="localhost/api/schedule/set_schedule.php";
-
-            $ch=curl_init($url);  curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"POST");   
-            curl_setopt($ch,CURLOPT_POSTFIELDS,array("data"=>$jsonData));  
-            curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
-            $result=curl_exec($ch);
-            curl_close($ch);
-        }
-    }
 
 ?>
 
@@ -266,12 +253,8 @@
             </div>
         </div>
         
-        
         <div id="header">
-            <img id="profilepics" src="images/defaultpp.jpg" height="50" width="50"/>
-            <span id="username">hi' <?php echo $_SESSION['user_name']; ?></span>
-            <br>
-            <button id="signOut" onclick="location.href='logout.php';" >Sign Out</button>
+            <span id="username">hi' <?php echo $_SESSION['user_name']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a></span>
         </div>
         
         <div id="content">
@@ -310,37 +293,37 @@
                                         <label>Select Days:</label>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Sat" name="days[]">Satday
+                                                <input type="checkbox" value="Sat" name="days">Satday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Sun" name="days[]">Sunday
+                                                <input type="checkbox" value="Sun" name="days">Sunday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Mon" name="days[]">Monday
+                                                <input type="checkbox" value="Mon" name="days">Monday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Tue" name="days[]">Tueday
+                                                <input type="checkbox" value="Tue" name="days">Tueday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Wed" name="days[]">Wednesday
+                                                <input type="checkbox" value="Wed" name="days">Wednesday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Thu" name="days[]">Thursday
+                                                <input type="checkbox" value="Thu" name="days">Thursday
                                             </label>
                                         </div>
                                         <div class="checkboxInline">
                                             <label>
-                                                <input type="checkbox" value="Fri" name="days[]">Friday
+                                                <input type="checkbox" value="Fri" name="days">Friday
                                             </label>
                                         </div>
                                     </div>
@@ -372,7 +355,7 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <input type="submit" value="save_schedule" name="submit" />
+                                    <input type="submit" value="save schedule" name="submit" />
                                 </div>
                             </div>
                         </div>
@@ -780,8 +763,8 @@ $(document).ready(function() {
         // select repetition option of the clicked Duration
         $('#repetitionSelect').find('option[value=' + durationsArray[index].repetition + ']').prop('selected', true);
         // set the start and end time of the clicked Duration
-        $("#startTimeInput").val(durationsArray[index].startTime);
-        $("#endTimeInput").val(durationsArray[index].endTime);
+        $("#startTimeInput").val(durationsArray[index].startTime.slice(11));
+        $("#endTimeInput").val(durationsArray[index].endTime.slice(11));
 
     });
 
