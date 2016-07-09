@@ -220,6 +220,14 @@
             <canvas id="mapping_canvas" height="100px" width="100px">
                 Your browser needs to be updated.
             </canvas>
+            <div id="footerDiv">
+                Designed For "WattMax" a Graduation Project at Electronics and Communication Section, Electrical Engineering Department, Assiut University.
+                <br>
+                <pre>
+                    Front End Developers: Muhammad Khalaf - <a href= "mailto:muhammadkhalaf@eng.au.edu.eg">muhammadkhalaf@eng.au.edu.eg</a>    Back End Developers: Ahmed H. Moneeb - <a href= "mailto:ahmedhamdy395@gmail.com">ahmedhamdy395@gmail.com</a> 
+                                          Abrar Muhammad - <a href= "mailto:abrarmmohamad@outlook.com">abrarmmohamad@outlook.com</a>                                Marwan Dahy - <a href= "mailto:marwandahy93@gmail.com">marwandahy93@gmail.com</a>
+                </pre> 
+            </div>
         </div>
         <form id="form1" method="GET" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']); ?>">
             <input id="input1" type="text" name="level">
