@@ -54,6 +54,30 @@
         height: 552px;
         }   
         
+    /****************** Footer **************************/
+    #footerDiv {
+            position: absolute;
+            bottom:0;
+            background-color: rgb(10, 10, 10);
+            color: #fff;
+            font-size: 12px;
+            padding: 20px 70px;
+            padding-bottom: 10px;
+            
+        } 
+    pre{
+        background-color: rgb(10, 10, 10);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    a {
+        color: #fff
+    }
+        
+        
+        
     /****************Content | Billing page***************/
     #billing{display: none;}
     .title{background-color: #CBCBCC; height: 50px; }
