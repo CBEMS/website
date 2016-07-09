@@ -64,16 +64,7 @@ $(document).ready(function(){
         /**********************************/
         //Billing page
             /*billReach*/ 
-            var BillReach=function(totalPowerConsumption,time){
-                var billCost=5; //the bill cost as Kw/h        
-                var energy = totalPowerConsumption/time;    
-                var billReach=parseInt(energy/billCost,10);          
-                $("#billCost").prepend(billReach);
-                       
-               var consPrecentage=parseInt(100-(((50-billReach)/50)*100),10);
-                $("#cons").prepend(consPrecentage);    
-                }
-            BillReach(2000,12);
+           
          
            $( "#fee" )
               .keyup(function() {

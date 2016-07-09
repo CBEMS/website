@@ -6,7 +6,50 @@ if(!isset($_SESSION['user_name']))
     header("Location: login-form.php");
 }
 
+    $user_id = $_SESSION['user_id'] ;
+    $url = "http://196.205.93.181:22355/api/bills/get_current_usage.php";    
+    $url = $url."?user_id=".$user_id;
+        
+    // create curl resource 
+    $ch = curl_init(); 
+    // set url 
+    curl_setopt($ch, CURLOPT_URL, $url); 
+    //return the transfer as a string 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    // $output contains the output string 
+    $out = curl_exec($ch); 
+    // close curl resource to free up system resources 
+    curl_close($ch);
+
+
+    if (isset($_GET['submit'])) 
+    {
+
+        if ($_GET['submit']=='Save')
+        {
+           $month = $_GET['month'];
+           $new_limit= $_GET['fee'];
+           
+            $url = "http://196.205.93.181:22355/api/bills/set_limit.php";    
+            $url = $url."?user_id=".$user_id."&month=".$month."&new_limit=".$new_limit;
+            
+             // create curl resource 
+            $ch = curl_init(); 
+            // set url 
+            curl_setopt($ch, CURLOPT_URL, $url); 
+            //return the transfer as a string 
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+            // $output contains the output string 
+            $output = curl_exec($ch); 
+            // close curl resource to free up system resources 
+            curl_close($ch);
+            $out = json_decode($out,true);
+            $totalPowerConsumption=$out['user_total_consumption'];
+            
+        }
+    }
 ?>
+
 <!doctype html>
 <html>
 
@@ -58,27 +101,30 @@ if(!isset($_SESSION['user_name']))
                 
                 <br>
             </section>
-<form id="frm" >
+            <form id="frm" method="GET" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']); ?>">
             <section class="selectFM">
                 <h3>Select Month </h3>
-                <select>
-                    <option>Month, Year...</option>
-                    <option>june</option>
+                <select name= "month"  required>
+                    <option></option>
+                    <option value="January" >January</option>
+                    <option value="February" >February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
                 </select>
                 <br>
-                <br>
                 <h3>Select Fee ($)</h3>
-                <input id="fee" type="text" value="50">
-                
-            </section>
-            <section class="additional">
-                <button id="updateButton" class="btn btn-lg btn-primary" type="button" >Update current Schedule</button>
-                <button id="saveButton" class="btn btn-lg btn-primary" type="submit" >Save</button>
-                <button type="reset" id="clearAllButton"  class="btn btn-lg btn-primary" value="Clear All">Clear All</button>
-                
-                
-            </section>
-</form>
+                <input id="fee" name="fee" type="text" required >
+                <input id="saveButton" class="btn btn-lg btn-primary" type="submit" name="submit" value="Save" >   
+            
+        </form>
    
 <p></p>
  
@@ -93,6 +139,19 @@ if(!isset($_SESSION['user_name']))
     
     <!-- a SCRIPT for all pages -->
     <script type="text/javascript" src="javascript\allPages.js"></script>
+     <script type="text/javascript">
+        var totalPowerConsumption = <?php echo $totalPowerConsumption ; ?> ;
+        var BillReach=function(totalPowerConsumption,time){
+                var billCost=5; //the bill cost as Kw/h        
+                var energy =  totalPowerConsumption  /time;    
+                var billReach=parseInt(energy/billCost,10);          
+                $("#billCost").prepend(billReach);
+                       
+               var consPrecentage=parseInt(100-(((50-billReach)/50)*100),10);
+                $("#cons").prepend(consPrecentage);    
+                }
+            BillReach(55555,12);
+     </script>
 </body>
 
 </html>

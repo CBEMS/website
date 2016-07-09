@@ -37,7 +37,7 @@
         
         // email exist or not
 
-        $url = "localhost/api/user/register/check_mail.php";    
+        $url = "http://196.205.93.181:22355/api/user/register/check_mail.php";    
         $url = $url."?email=".$email;
         
          // create curl resource 
@@ -103,7 +103,7 @@
         if (!$nameErr  && !$emailErr && !$mobErr && !$passErr && !$typeErr) 
         {
 
-            $url = "localhost/api/user/register/import_user.php";    
+            $url = "http://196.205.93.181:22355/api/user/register/import_user.php";    
             $con =array("user_name"=>$name, "email"=>$email, "password"=>$pass, "type"=>$type, "photo"=>"","phone_num"=>$mob);
             $curl = curl_init($url);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

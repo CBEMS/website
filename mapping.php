@@ -20,7 +20,7 @@
 
         if ($_GET['level']==0) 
         {
-        $url = "localhost/api/hardware/get_all_blocks.php";    
+        $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
         $url = $url."?user_id=".$user_id;
             
         // create curl resource 
@@ -51,7 +51,7 @@
             $block_name='"'.$block_name.'"';
             $level = $_GET['level'];
 
-            $url = "localhost/api/hardware/get_rooms_block.php";    
+            $url = "http://196.205.93.181:22355/api/hardware/get_rooms_block.php";    
             $url = $url."?user_id=".$user_id."&block_id=".$S_id;
 
             // create curl resource 
@@ -81,7 +81,7 @@
             $block_name=$_GET['block_name'];
             $block_name='"'.$block_name.'"';
 
-            $url = "localhost/api/hardware/get_devices_room.php";   
+            $url = "http://196.205.93.181:22355/api/hardware/get_devices_room.php";   
             $url = $url . "?user_id=" . $user_id . "&room_id=" . $S_id ;
             // create curl resource 
             $ch = curl_init(); 
@@ -106,9 +106,9 @@
             if ($newstate == 'off') 
             {
                 # code...
-                $messageForDevice= "" ; //  askAlaa   
-                $url = "localhost//api/message/send_message.php";    
-                $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
+                $messageForDevice= "device".$deviceID."0" ; //  askAlaa   
+                $url = "http://196.205.93.181:22355/api/message/send_message.php";    
+                $url = $url."?node_id=".$deviceID."&message=".$messageForDevice;
                 
                 // create curl resource 
                 $ch = curl_init(); 
@@ -120,14 +120,45 @@
                 $output = curl_exec($ch); 
                 // close curl resource to free up system resources 
                 curl_close($ch);
-                      
+                
+
+                $url = "http://196.205.93.181:22355/api/hardware/set_device_state.php";    
+                $url = $url."?device_id=".$deviceID."&state=".$newstate;
+                
+                // create curl resource 
+                $ch = curl_init(); 
+                // set url 
+                curl_setopt($ch, CURLOPT_URL, $url); 
+                //return the transfer as a string 
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                // $output contains the output string 
+                $output = curl_exec($ch); 
+                // close curl resource to free up system resources 
+                curl_close($ch);
+         
             }
             elseif ($newstate == 'on') 
             {
                 # code...
-                $messageForDevice= ""; //  askAlaa
-                $url = "localhost//api/message/send_message.php";    
-                $url = $url."?device_id=".$deviceID."&message=".$messageForDevice;
+                $messageForDevice= "device".$deviceID."1" ; //  askAlaa   
+                
+                $url = "http://196.205.93.181:22355/api/message/send_message.php";    
+                $url = $url."?node_id=".$deviceID."&message=".$messageForDevice;
+                
+                // create curl resource 
+                $ch = curl_init(); 
+                // set url 
+                curl_setopt($ch, CURLOPT_URL, $url); 
+                //return the transfer as a string 
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                // $output contains the output string 
+                $output = curl_exec($ch); 
+                // close curl resource to free up system resources 
+                curl_close($ch);                
+
+
+                $url = "http://196.205.93.181:22355/api/hardware/set_device_state.php";    
+                $url = $url."?device_id=".$deviceID."&state=".$newstate;
                 
                 // create curl resource 
                 $ch = curl_init(); 
@@ -139,7 +170,7 @@
                 $output = curl_exec($ch); 
                 // close curl resource to free up system resources 
                 curl_close($ch);
-                
+
             }
 
             }
@@ -149,7 +180,7 @@
     }
     else
     {
-        $url = "localhost/api/hardware/get_all_blocks.php";    
+        $url = "http://196.205.93.181:22355/api/hardware/get_all_blocks.php";    
         $url = $url."?user_id=".$user_id;
             
         // create curl resource 
