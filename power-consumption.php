@@ -73,7 +73,7 @@ if(!isset($_SESSION['user_name']))
                 <tr><td>
 <?php
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, 'localhost/api/readings/get_user_total_consumption.php?user_id=' . <?php echo $_SESSION['user_id']; ?>);
+curl_setopt( $ch, CURLOPT_URL, 'localhost/api/readings/get_user_total_consumption.php?user_id=' . $_SESSION['user_id']);
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true);
 
 $content = curl_exec($ch);
