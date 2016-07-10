@@ -140,17 +140,17 @@ if(!isset($_SESSION['user_name']))
     <!-- a SCRIPT for all pages -->
     <script type="text/javascript" src="javascript\allPages.js"></script>
      <script type="text/javascript">
-        var totalPowerConsumption = <?php echo $totalPowerConsumption ; ?> ;
-        var BillReach=function(totalPowerConsumption,time){
+       var totalPowerConsumption = <?php echo $totalPowerConsumption ; ?> ;
+       var BillReach=function(totalPowerConsumption,time,fee){
                 var billCost=5; //the bill cost as Kw/h        
-                var energy =  totalPowerConsumption  /time;    
+                var energy = totalPowerConsumption/time;    
                 var billReach=parseInt(energy/billCost,10);          
                 $("#billCost").prepend(billReach);
-                       
-               var consPrecentage=parseInt(100-(((50-billReach)/50)*100),10);
+                var fee;                      
+                var consPrecentage=parseInt(100-(((fee-billReach)/fee)*100),10);
                 $("#cons").prepend(consPrecentage);    
                 }
-            BillReach(55555,12);
+            BillReach(2000,12,50);
      </script>
 </body>
 
