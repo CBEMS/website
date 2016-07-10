@@ -68,10 +68,9 @@ if(!isset($_SESSION['user_name']))
 				<div id="more"><a href="billing.html">Update Bill Limits </a><p style="display:inline;">|</p><a href="power-schedule1.html"> Update Power Schedule</a></div>
 			</div>
             <div>
-            <table>
-                <tr class="try">
-                <td>total consumption</td>
-                <td>
+<br><br><br><br> <table border="1">
+                <tr><td>Total Consumption</td></tr>
+                <tr><td>
 <?php
 $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL, 'localhost/api/readings/get_user_total_consumption.php?user_id=5');
@@ -80,9 +79,8 @@ curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true);
 $content = curl_exec($ch);
 $content = json_decode($content, true);
 echo $content['total_consumtion'];
-?>
-		</td>
-                    </tr>
+?></td>
+		</tr>
                 </table>
             </div>
 			</div>  
