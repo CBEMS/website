@@ -71,7 +71,17 @@ if(!isset($_SESSION['user_name']))
             <table>
                 <tr class="try">
                 <td>total consumption</td>
-                <td> </td>
+                <td>
+<?php
+$ch = curl_init();
+curl_setopt( $ch, CURLOPT_URL, 'localhost/api/readings/get_user_total_consumption.php?user_id=5');
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true);
+
+$content = curl_exec($ch);
+$content = json_decode($content, true);
+echo $content['total_consumtion'];
+?>
+		</td>
                     </tr>
                 </table>
             </div>
