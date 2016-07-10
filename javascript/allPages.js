@@ -37,7 +37,7 @@ $(document).ready(function(){
                     {y: total power consumtion of a blook , indexLabel:"blook name: y%"}*/
                     //example
 					dataPoints: [
-					{ y: 40.04, indexLabel:"Room (1): {y}%" },
+					{ y: 51.04, indexLabel:"Room (1): {y}%" },
 					{ y: 10.83, indexLabel:"Room (2): {y}%" },
 					{ y: 30.20, indexLabel: "Room (3): {y}%" },
 					{ y: 10.11, indexLabel: "Room (4): {y}%" },
