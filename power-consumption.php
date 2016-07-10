@@ -18,7 +18,14 @@ if(!isset($_SESSION['user_name']))
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     <script src="javascript/canvasjs.min.js"></script>
-	
+	<style type="text/css">
+    table
+    {
+        position: relative;
+        margin-left : 300;
+        margin-top : 300;
+    }
+    </style>
 	
 	<title>Power Consumption</title>
 </head>
@@ -60,6 +67,14 @@ if(!isset($_SESSION['user_name']))
 				<h2><span id="cons"> </span> %</h2>
 				<div id="more"><a href="billing.html">Update Bill Limits </a><p style="display:inline;">|</p><a href="power-schedule1.html"> Update Power Schedule</a></div>
 			</div>
+            <div>
+            <table>
+                <tr class="try">
+                <td>total consumption</td>
+                <td> </td>
+                    </tr>
+                </table>
+            </div>
 			</div>  
 		<div id="chartContainer" style="height: 400px; width: 70%;"></div>
 		
@@ -85,7 +100,12 @@ if(!isset($_SESSION['user_name']))
                 var totalpower;
                 var y=[];
                 for (j=0;j<input.length;j++){
-                    y.push((input[i]/sum)*totalpower);
+                    y.push({
+                            y: (input[i]/sum)*totalpower ,
+                            indexLabel: "{roomName}: {y}%", 
+                            sortable: true,
+                            resizeable: true
+                        });
                 }
             
 		</script>
